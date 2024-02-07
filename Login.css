@@ -1,0 +1,53 @@
+html {
+    font-family: 'Montserrat';
+    background-color: #3F8C55;
+}
+
+body {
+    margin: 0
+}
+
+button{
+    background-color: #F9453E;
+    border-color: #F9453E;
+}
+
+.btnText{
+    margin-top: 6px;
+    color: #ffffff;
+}
+
+/* Additional Styles and Optimization for the Website's Smoothness */
+.auth-wrapper .lavalite-bg {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.auth-wrapper .authentication-form {
+    font-size: .9rem;
+    width: 70%;
+    display: block;
+    padding: 100px 0
+}
+
+.auth-wrapper .authentication-form .form-group {
+    position: relative
+}
+
+.auth-wrapper .authentication-form .form-group .form-control {
+    padding-left: 40px
+}
+
+.auth-wrapper .authentication-form .form-group .form-control ~ i {
+    position: absolute;
+    top: 10px;
+    left: 15px
+}
+
+.auth-wrapper .authentication-form .sign-btn {
+    margin-top: 30px
+}
