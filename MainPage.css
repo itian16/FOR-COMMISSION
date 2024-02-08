@@ -2,12 +2,37 @@ html{
   font-family: 'Poppins';
 }
 
+/* For Navigation Bar */
+@keyframes slideDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.sticky-nav ul {
+  animation: slideDown 0.5s ease forwards;
+}
+
+.sticky-nav ul li a{
+  border-radius: 10px;
+}
+
+.sticky-nav ul li a:hover {
+  background-color: #042b15;
+  border-radius: 10px;
+}
+
 /* --- For Header Section--- */
 .sticky-nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
 }
 
 .slider {
@@ -28,10 +53,10 @@ html{
 
 .slider .indicators{
     position: absolute;
-    top: 750px; /* Adjust top position as needed */
-    left: 50%; /* Adjust left position as needed */
+    top: 750px; 
+    left: 50%; 
     transform: translateX(-50%);
-    z-index: 2; /* Ensure the indicators appear above the slider */
+    z-index: 2; 
 }
 
 .slider .slides li img {
@@ -42,18 +67,16 @@ html{
 }
 
 /* --- For About Section--- */
-
 #About{
   background-image: url('ImageSources/BG-IMAGE-ABOUT.png');
   background-size: cover; 
   background-position: center; 
-  margin-top: 360px;
   height: 1050px;
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    background-size: contain; /* Adjusts background size to contain the image within the container */
+    background-size: contain; 
   }
 }
 
@@ -218,9 +241,9 @@ html{
 /* ---For Hamburger Menu--- */
 .fixed-hamburger {
   position: fixed;
-  top: 20px; /* Adjust as needed */
-  right: 30px; /* Adjust as needed */
-  z-index: 1000; /* Ensure it's above other content */
+  top: 20px; 
+  right: 30px; 
+  z-index: 1000; 
   color: #ffffff;
   cursor: pointer;
   font-size: 24px;
@@ -241,4 +264,76 @@ html{
   text-align: center;
   font-size: 25px;
   color:#033016;
+}
+
+/* ---For Tools Section--- */
+#Tools{
+  background-image: url('ImageSources/BG-IMAGE-TOOL.png');
+  background-size: cover; 
+  background-position: center; 
+  height: 900px;
+  text-align: center;
+}
+
+.toolContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.toolBoxContainer {
+  width: 500px; 
+  height: 350px; 
+  background-color: rgba(2, 59, 26, 0.6); 
+  border-radius: 50px; 
+  margin-right: 50px; 
+  margin-top: 50px;
+  color: white;
+}
+
+.toolBoxContainer:hover {
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 4px 20px 7px;
+}
+
+.rounded-button {
+  display: block;
+  margin-top: 10px;
+  width: 300px; 
+  height: 90px; 
+  background-color: #ffffff; 
+  color: #3F8C55; 
+  border: none;
+  border-radius: 50px; 
+  margin: 20px auto; 
+  font-size: 33px;
+}
+
+.rounded-button:hover{
+  background-color: #F9453E; 
+  color: white;
+  width: 310px; 
+  height: 100px; 
+  margin-top: 8px;
+  font-size: 35px;
+}
+
+.parallax-container{
+  height: 590px;
+  background-size: cover; 
+  background-position: center; 
+}
+
+.txtTools{
+  margin-top: 130px; 
+  margin-bottom: 40px; 
+  width: 500px; 
+  height: 130px;
+  display: inline-block;
+}
+
+.toolDefinition{
+  font-size: 30px; 
+  max-width:80%; 
+  margin-left: 50px;
+  margin-bottom: 35px;
+  margin-top: 60px;
 }
