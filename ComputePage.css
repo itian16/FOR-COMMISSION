@@ -1,0 +1,12 @@
+.dropdown-trigger.btn {
+    background-color: #023B1A; /* Background color */
+    color: white !important; /* Text color (important to override default) */
+    width: 300px; /* Width of the dropdown trigger */
+}
+
+.subjects-text{
+    color: white;
+    text-align: center;
+    font-family: 'zing-rust-demo-base', sans-serif;
+    font-weight: bold;
+}
