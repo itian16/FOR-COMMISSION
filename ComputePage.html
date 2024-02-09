@@ -14,8 +14,8 @@
         <link href="https://fonts.cdnfonts.com/css/college" rel="stylesheet">
         <link href="https://www.dafontfree.net/embed/emluZy1ydXN0LWRlbW8tYmFzZSZkYXRhLzkxL3ovMTY3NDM4L1ppbmdSdXN0RGVtby1CYXNlLm90Zg" rel="stylesheet" type="text/css"/>
         <link rel="icon" href="SHS-logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="MainPage.css">
         <title>Compute Grades</title>
+
     </head>
     <body>
         <!-- NavBar -->
@@ -60,7 +60,30 @@
             </div>
         </ul>
 
-
+        <div class="container">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown' data-constrainwidth="false" data-beloworigin="true" style="width: 300px;">Subjects</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown' class='dropdown-content'>
+                <li><a href="#!">General Chemistry 2</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">General Physics 2</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Research Capstone</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Research Project</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Contemporary Philippine Art from the Region</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Web Development</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Empowerment Technology </a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">P.E 4</a></li>
+                <li class="divider" tabindex="-1"></li>
+            </ul>
+        </div>
+        
 
         <!-- Extender -->
         <div style="height: 800px;"></div>
@@ -119,6 +142,12 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script>
+            //DropDown
+            $('.dropdown-trigger').dropdown();
+            
+        </script>
 
     </body>
 </html>
