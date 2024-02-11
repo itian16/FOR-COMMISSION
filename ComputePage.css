@@ -1,7 +1,7 @@
 .dropdown-trigger.btn {
-    background-color: #023B1A; /* Background color */
-    color: white !important; /* Text color (important to override default) */
-    width: 300px; /* Width of the dropdown trigger */
+    background-color: #023B1A; 
+    color: white !important; 
+    width: 300px; 
 }
 
 .subjects-text{
@@ -9,4 +9,6 @@
     text-align: center;
     font-family: 'zing-rust-demo-base', sans-serif;
     font-weight: bold;
+    border-radius: 20px;
+    font-size: 50px;
 }
