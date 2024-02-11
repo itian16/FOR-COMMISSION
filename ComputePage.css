@@ -5,10 +5,16 @@
 }
 
 .subjects-text{
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-family: 'zing-rust-demo-base', sans-serif;
     font-weight: bold;
     border-radius: 20px;
     font-size: 50px;
+}
+
+.collapsible-header{
+    background-color: #11813A;
+    font-weight: 700;
+    color: white;
 }
