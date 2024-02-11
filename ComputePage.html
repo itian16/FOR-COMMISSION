@@ -13,9 +13,9 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href="https://fonts.cdnfonts.com/css/college" rel="stylesheet">
         <link href="https://www.dafontfree.net/embed/emluZy1ydXN0LWRlbW8tYmFzZSZkYXRhLzkxL3ovMTY3NDM4L1ppbmdSdXN0RGVtby1CYXNlLm90Zg" rel="stylesheet" type="text/css"/>
-        <link rel="icon" href="SHS-logo.png" type="image/x-icon">
+        <link rel="icon" href="ImageSources/SHS-logo.png" type="image/x-icon">
         <link rel="stylesheet" href="ComputePage.css">
-        <title>Compute Grades</title>
+        <title>𝗢𝘂𝘁𝗽𝘂𝘁 𝗧𝗿𝗮𝗰𝗸𝗲𝗿</title>
 
     </head>
     <body>
@@ -26,22 +26,12 @@
                    <img src="ImageSources/Web-Logo-White.png" alt="PinnaCle" width="80px" height="50px" style="margin-top: 7px;">
                 </a>
 
-                <ul class="right hide-on-med-and-down" style="margin-right: 90px;">
+                <ul class="right hide-on-med-and-down" style="margin-right: 20px;">
                     <li>
-                        <a href="#Tools" style="color: #ffffff;">Tools
-                            <i class="fa-solid fa-screwdriver-wrench left" style="color: #ffffff;"></i>
+                        <a href="MainPage.html" style="color: #ffffff;">Back
+                            <i class="fa-solid fa-arrow-left left" style="color: #ffffff;"></i>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#About" style="color: #ffffff;">About Us
-                            <i class="fa-solid fa-circle-info left" style="color: #ffffff;"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#Contact" style="color: #ffffff;">Contact
-                            <i class="fa-solid fa-phone left" style="color: #ffffff;"></i>
-                        </a>
-                    </li>
+                    </li> 
                 </ul>
             </div>
         </nav>
@@ -133,17 +123,17 @@
 
 
         <!-- Collapsible -->
-        <div class="container">
+        <div class="container" style="height: 1000px;">
             <div class="row">
-                <div class="subjects s12 m12 l12 center" style="background-color:#023B1A">
+                <div class="subjects s12 m12 l12 center" style="background-color:#022a12; border-radius: 25px; margin-top: 150px;">
                     <h3 class="subjects-text">SUBJECTS</h3>
                 </div>
             </div>
+            <p style="font-size: 20px;"><b>Instruction:</b> Click on one panel to begin tracking.</p>
             <ul class="collapsible">
-                <!-- General Chemistry 2 -->
                 <li>
                     <div class="collapsible-header">
-                        <i class="material-icons">filter_drama</i>General Chemistry 2
+                        <i class="material-icons">whatshot</i>General Chemistry 2
                     </div>
                     <div class="collapsible-body">
                         <div class="container">
@@ -153,7 +143,13 @@
                                     <input type="number" id="numWrittenWorksChemistry" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Chemistry')"/>
                                     <div id="WrittenWorksInputsChemistry"></div>
                                 </div>
-                                <div class="col s12 m6 l4">
+                                <div class="col s12 m6 l3">
+                                    <span>Quiz</span>
+                                    <input type="number" id="sw1" placeholder="Quiz 1"/>
+                                    <input type="number" id="sw1" placeholder="Quiz 2"/>
+                                    <input type="number" id="sw1" placeholder="Quiz 3"/>
+                                </div>
+                                <div class="col s12 m6 l3">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
@@ -164,7 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col s12 m6 l4">
+                                <div class="col s12 m6 l3">
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
@@ -183,10 +179,9 @@
                         </div>
                     </div>
                 </li>
-                <!-- General Physics 2 -->
                 <li>
                     <div class="collapsible-header">
-                        <i class="material-icons">place</i>General Physics 2
+                        <i class="material-icons">whatshot</i>General Physics 2
                     </div>
                     <div class="collapsible-body">
                         <div class="container">
@@ -226,7 +221,6 @@
                         </div>
                     </div>
                 </li>
-                <!-- Research Capstone -->
                 <li>
                     <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Research Capstone
@@ -269,7 +263,6 @@
                         </div>
                     </div>
                 </li>
-                <!-- Research Project -->
                 <li>
                     <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Research Project
@@ -354,7 +347,6 @@
                         </div>
                     </div>
                 </li>
-                <!-- Web Development -->
                 <li>
                     <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Web Development
@@ -397,7 +389,6 @@
                         </div>
                     </div>
                 </li>
-                <!-- Empowerment Technology -->
                 <li>
                     <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Empowerment Technology
@@ -440,10 +431,9 @@
                         </div>
                     </div>
                 </li>
-                <!-- P.E 4 -->
                 <li>
                     <div class="collapsible-header">
-                        <i class="material-icons">whatshot</i>P.E 4
+                        <i class="material-icons">whatshot</i>Physical Education 4
                     </div>
                     <div class="collapsible-body">
                         <div class="container">
@@ -485,12 +475,7 @@
                 </li>
             </ul>
         </div>
-        
-        
-
-        <!-- Extender -->
-        <div style="height: 800px;"></div>
-
+    
         <!-- Footer -->
         <footer id="Contact" class="page-footer" style="background-color: #023B1A">
             <div class="container">
