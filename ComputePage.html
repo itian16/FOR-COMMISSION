@@ -69,10 +69,10 @@
         </ul>
 
         <script>
-            function generateWrittenWorksInputs() {
-                const numWrittenWorks = parseInt(document.getElementById('numWrittenWorks').value) || 0;
-                const quizInputsDiv = document.getElementById('quizInputs');
-                quizInputsDiv.innerHTML = '';
+            function generateWrittenWorksInputs(subject) {
+                const numWrittenWorks = parseInt(document.getElementById(`numWrittenWorks${subject}`).value) || 0;
+                const WrittenWorksInputsDiv = document.getElementById(`WrittenWorksInputs${subject}`);
+                WrittenWorksInputsDiv.innerHTML = '';
 
                 for (let i = 1; i <= numWrittenWorks; i++) {
                     const divRow = document.createElement('div');
@@ -86,39 +86,39 @@
 
                     const rawScoreInput = document.createElement('input');
                     rawScoreInput.type = 'number';
-                    rawScoreInput.placeholder = 'Quiz ' + i + ' (Your Score)';
-                    rawScoreInput.id = 'qz' + i + 'Raw';
+                    rawScoreInput.placeholder = `Written Work ${i} (Your Score)`;
+                    rawScoreInput.id = `qz${i}Raw${subject}`;
                     rawScoreColumn.appendChild(rawScoreInput);
 
                     const maxScoreInput = document.createElement('input');
                     maxScoreInput.type = 'number';
                     maxScoreInput.placeholder = 'Total Score';
-                    maxScoreInput.id = 'qz' + i + 'Max';
+                    maxScoreInput.id = `qz${i}Max${subject}`;
                     maxScoreColumn.appendChild(maxScoreInput);
 
                     divRow.appendChild(rawScoreColumn);
                     divRow.appendChild(maxScoreColumn);
-                    quizInputsDiv.appendChild(divRow);
+                    WrittenWorksInputsDiv.appendChild(divRow);
                 }
             }
 
-            function calculateGrade() {
-                const numWrittenWorks = parseInt(document.getElementById('numWrittenWorks').value) || 0;
+            function calculateGrade(subject) {
+                const numWrittenWorks = parseInt(document.getElementById(`numWrittenWorks${subject}`).value) || 0;
 
                 let quizTotal = 0;
                 for (let i = 1; i <= numWrittenWorks; i++) {
-                    const rawScore = parseFloat(document.getElementById('qz' + i + 'Raw').value) || 0;
-                    const maxScore = parseFloat(document.getElementById('qz' + i + 'Max').value) || 0;
+                    const rawScore = parseFloat(document.getElementById(`qz${i}Raw${subject}`).value) || 0;
+                    const maxScore = parseFloat(document.getElementById(`qz${i}Max${subject}`).value) || 0;
                     quizTotal += (rawScore / maxScore) || 0;
                 }
                 quizTotal /= numWrittenWorks;
 
-                const examScore = parseFloat(document.getElementById('exam').value) || 0;
-                const examMaxScore = parseFloat(document.getElementById('examScore').value) || 0;
+                const examScore = parseFloat(document.getElementById(`exam${subject}`).value) || 0;
+                const examMaxScore = parseFloat(document.getElementById(`examScore${subject}`).value) || 0;
                 const exam = (examScore / examMaxScore) || 0;
 
-                const ptScore = parseFloat(document.getElementById('pt1').value) || 0;
-                const ptMaxScore = parseFloat(document.getElementById('pt1Score').value) || 0;
+                const ptScore = parseFloat(document.getElementById(`pt1${subject}`).value) || 0;
+                const ptMaxScore = parseFloat(document.getElementById(`pt1Score${subject}`).value) || 0;
                 const pt = (ptScore / ptMaxScore) || 0;
 
                 const quizWeight = 0.25;
@@ -127,7 +127,7 @@
 
                 const overallGrade = (quizTotal * quizWeight) + (exam * examWeight) + (pt * ptWeight);
 
-                document.getElementById('result').innerText = `Overall Grade: ${(overallGrade * 100).toFixed(2)}%`;
+                document.getElementById(`result${subject}`).innerText = `Overall Grade: ${(overallGrade * 100).toFixed(2)}%`;
             }
         </script>
 
@@ -150,17 +150,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksChemistry" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Chemistry')"/>
+                                    <div id="WrittenWorksInputsChemistry"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examChemistry" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreChemistry" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -168,17 +168,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Chemistry" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreChemistry" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('Chemistry')">Calculate Grade</button>
+                                <p id="resultChemistry"></p>
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsPhysics"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -237,7 +237,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsCapstone"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -280,7 +280,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsProject"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -322,7 +322,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsCPAR"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -365,7 +365,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsWebDev"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -408,7 +408,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsEmpowerment"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
@@ -451,7 +451,7 @@
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
                                     <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <div id="WrittenWorksInputsPE"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
