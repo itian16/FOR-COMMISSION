@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+    <head>
+        <title>𝗢𝘂𝘁𝗽𝘂𝘁 𝗕𝗮𝘀𝗲𝗱 𝗧𝗿𝗮𝗰𝗸𝗲𝗿 & 𝗔𝗰𝗮𝗱𝗲𝗺𝗶𝗰 𝗪𝗼𝗿𝗸 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁</title>
+        <link rel="icon" href="ImageSources/SHS-logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="Login.css">  
+        <link rel="stylesheet" href="https://pinnacle.pnc.edu.ph/vendor/bootstrap/dist/css/bootstrap.min.css"> 
+        <script src="https://kit.fontawesome.com/43d04dcae8.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>REMINDER!</h1><br>
+                <p style="color: #f44336;">Here is the <b>Default Credential</b> for Log-in:</p>
+                <p><b><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Username:</b> admin</p>
+                <p><b><i class="fa-solid fa-lock"></i>&nbsp;&nbsp;Password:</b> 12345</p>
+            </div>
+        </div>
+        <div class="auth-wrapper">
+            <div class="container-fluid h-100">
+                <div class="row flex-row h-100 bg-white">
+                    <div class="col-xl-8 col-lg-6 col-md-5 p-0">
+                        <div class="lavalite-bg" style="background-image: url('ImageSources/Bg-image-for-login.png')">
+                            <div class="container-fluid h-100">
+                                <div class="row justify-content-center h-100">
+                                    <div class="col-md-6 col-10 d-md-none align-self-center">
+                                        <div class="card card-body my-4">
+                                            <div class="authentication-form mx-auto py-4 px-md-4 px-0">
+                                                <a href="https://www.facebook.com/shspnc.edu.ph" target="_blank">
+                                                    <img class="w-100 mb-4" src="https://media.discordapp.net/attachments/876459172613480493/1203725669155082310/SHS-logo-and-name.png?ex=65d223e3&is=65bfaee3&hm=f738dab3f91390d760063fa49c6d5df85c11f0d48607b815e6d98dc7d7324bf7&=&format=webp&quality=lossless&width=1440&height=278">
+                                                </a>
+                                                
+                                                <img class="img-fluid px-4" src="ImageSources/Web-Logo.png" alt="PinnaCle">
+                                                <p class="text-center">
+                                                    <b style="color:seagreen">Output Based Tracker & Academic Work Management</b><br><br>
+                                                </p>
+                                                
+                                                <form class="form-login" id="loginForm1" method="post" action="">
+                                                    <input type="hidden" name="_token" value=" ">        
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" autocomplete="off" name="username" placeholder="User Id" required="">
+                                                        <i class="fa-solid fa-user"></i>
+                                                    </div>
+                                            
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="password" name="password" id="passwordField1" placeholder="Password" required>
+                                                        <i class="fa-solid fa-lock"></i>
+                                                        <i id="toggleButton1" class="fa-regular fa-eye" class="toggle-password" onclick="togglePasswordField1()"></i>
+                                                    </div>         
+
+                                                    <div class="text-right">
+                                                        <a class="text-success forgot-password" href="#"><b>Forgot Password ?</b></a>
+                                                    </div>
+                                                    <div class="sign-btn text-center">
+                                                        <button class="rounded-pill px-4" style="height:40px">
+                                                            <h6 class="btnText">LOGIN</h6>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-6 col-md-7 p-0 my-auto d-md-block d-none">
+                        <div class="authentication-form mx-auto py-4 px-md-4 px-0">
+                            <a href="https://www.facebook.com/shspnc.edu.ph" target="_blank">
+                                <img class="w-100 mb-4" src="https://media.discordapp.net/attachments/876459172613480493/1203725669155082310/SHS-logo-and-name.png?ex=65d223e3&is=65bfaee3&hm=f738dab3f91390d760063fa49c6d5df85c11f0d48607b815e6d98dc7d7324bf7&=&format=webp&quality=lossless&width=1440&height=278">
+                            </a>
+                            <img class="img-fluid px-4" src="ImageSources/Web-Logo.png" alt="PinnaCle">
+                            <p class="text-center">
+                                <b style="color:seagreen">Output Based Tracker & Academic Work Management</b><br><br>
+                            </p>
+                            <form class="form-login" id="loginForm2" method="post" action="">
+                                <input type="hidden" name="_token" value=" ">        
+                                <div class="form-group">
+                                    <input class="form-control" type="text" autocomplete="off" name="username" placeholder="User Id" required="">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input class="form-control" type="password" name="password" id="passwordField" placeholder="Password" required>
+                                    <i class="fa-solid fa-lock"></i>
+                                    <i id="toggleButton" class="fa-regular fa-eye" class="toggle-password" onclick="togglePasswordField()"></i>
+                                </div>         
+
+                                <div class="sign-btn text-center">
+                                    <button class="rounded-pill px-4" style="height:40px">
+                                        <h6 class="btnText">LOGIN</h6>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- jquery cdn -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script>
+             function togglePasswordField() {
+                var passwordField = document.getElementById("passwordField");
+                var eyeIcon = document.querySelector(".toggle-password i");
+
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    eyeIcon.classList.remove("fa-eye");
+                    eyeIcon.classList.add("fa-eye-slash");
+                } else {
+                    passwordField.type = "password";
+                    eyeIcon.classList.remove("fa-eye-slash");
+                    eyeIcon.classList.add("fa-eye");
+                }
+            }
+
+             function togglePasswordField1() {
+                var passwordField = document.getElementById("passwordField1");
+                var eyeIcon = document.querySelector("#toggleButton1");
+
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    eyeIcon.classList.remove("fa-eye");
+                    eyeIcon.classList.add("fa-eye-slash");
+                } else {
+                    passwordField.type = "password";
+                    eyeIcon.classList.remove("fa-eye-slash");
+                    eyeIcon.classList.add("fa-eye");
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                // Select the login forms
+                const loginForm1 = document.getElementById("loginForm1");
+                const loginForm2 = document.getElementById("loginForm2");
+
+                // Add event listener for form submission for the first form
+                loginForm1.addEventListener("submit", function(event) {
+                    // Prevent the default form submission
+                    event.preventDefault();
+
+                    // Retrieve the entered username and password from the first form
+                    const username = loginForm1.querySelector("input[name='username']").value;
+                    const password = loginForm1.querySelector("input[name='password']").value;
+
+                    // Check if the entered credentials match the defaults
+                    const defaultUsername = "admin";
+                    const defaultPassword = "12345";
+
+                    if (username === defaultUsername && password === defaultPassword) {
+                        // Redirect to the main page upon successful login
+                        window.location.href = "MainPage.html";
+                    } else {
+                        // Display an error message or handle invalid credentials
+                        showAlert("Invalid username or password. Please try again.");
+                    }
+                });
+
+                // Add event listener for form submission for the second form
+                loginForm2.addEventListener("submit", function(event) {
+                    // Prevent the default form submission
+                    event.preventDefault();
+
+                    // Retrieve the entered username and password from the second form
+                    const username = loginForm2.querySelector("input[name='username']").value;
+                    const password = loginForm2.querySelector("input[name='password']").value;
+
+                    // Check if the entered credentials match the defaults
+                    const defaultUsername = "admin";
+                    const defaultPassword = "12345";
+
+                    if (username === defaultUsername && password === defaultPassword) {
+                        // Redirect to the main page upon successful login
+                        window.location.href = "MainPage.html";
+                    } else {
+                        // Display an error message or handle invalid credentials
+                        showAlert("Invalid username or password. Please try again.");
+                    }
+                });
+            });
+
+            // Function to display the styled alert
+            function showAlert(message) {
+                const alertBox = document.createElement("div");
+                alertBox.classList.add("alert");
+
+                // Create the close button
+                const closeButton = document.createElement("span");
+                closeButton.classList.add("closebtn");
+                closeButton.innerHTML = "&times;"; // The 'x' symbol
+                closeButton.onclick = function() {
+                    alertBox.style.display = "none";
+                    overlay.style.display = "none"; // Hide the overlay
+                };
+
+                // Append the message and the close button to the alert box
+                alertBox.appendChild(closeButton);
+                alertBox.appendChild(document.createTextNode(message));
+
+                // Create container for buttons
+                const btnContainer = document.createElement("div");
+                btnContainer.classList.add("btn-container");
+
+                // Create Cancel button
+                const cancelButton = document.createElement("button");
+                cancelButton.classList.add("btn", "cancel");
+                cancelButton.innerHTML = "Cancel";
+                cancelButton.onclick = function() {
+                    // Handle Cancel button action
+                    alertBox.style.display = "none"; // Hide the alert box
+                    overlay.style.display = "none"; // Hide the overlay
+                };
+
+                // Append Cancel button to the button container
+                btnContainer.appendChild(cancelButton);
+
+                // Append the button container to the alert box
+                alertBox.appendChild(btnContainer);
+
+                // Append the alert box to the body
+                document.body.appendChild(alertBox);
+
+                // Create overlay and append it to the body
+                const overlay = document.createElement("div");
+                overlay.classList.add("overlay");
+                document.body.appendChild(overlay);
+            }
+
+            // For Modal Default Credential
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the page loads, show the modal
+                modal.style.display = "block";
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal content, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+                // Stop event propagation when clicking inside the modal content
+                modal.onclick = function(event) {
+                    event.stopPropagation();
+                }
+            });
+        </script>
+    </body>
+</html>

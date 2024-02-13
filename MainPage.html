@@ -18,6 +18,18 @@
         <link rel="stylesheet" href="MainPage.css">
     </head>
     <body>
+        <!-- Overlay -->
+        <div class="overlay">
+            <!-- Modal -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>DEAR USER,</h2>
+                <p>This <b style="color: #F9453E;">Web Prototype</b> is not uploaded on a paid domain and doesn't have any paid API or cloud storage. The intention of the developers/researchers is to showcase the mock-up, prototype, and visualization of their goals and services.</p><br>
+                <p>Thank you,</p>
+                <p>- Study Flow Developers/Researchers</p>
+            </div>
+        </div>
+
         <!-- NavBar -->
         <nav class="sticky-nav">
             <div class="nav-wrapper" style="background-color: #023B1A">
@@ -27,23 +39,32 @@
 
                 <ul class="right hide-on-med-and-down" style="margin-right: 90px;">
                     <li>
-                        <a href="#Tools" style="color: #ffffff;">Tools
+                        <a href="#scrollspy-Tools" style="color: #ffffff;">Tools
                             <i class="fa-solid fa-screwdriver-wrench left" style="color: #ffffff;"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#About" style="color: #ffffff;">About Us
+                        <a href="#scrollspy-About" style="color: #ffffff;">About Us
                             <i class="fa-solid fa-circle-info left" style="color: #ffffff;"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#Contact" style="color: #ffffff;">Contact
+                        <a href="#scrollspy-Contact" style="color: #ffffff;">Contact
                             <i class="fa-solid fa-phone left" style="color: #ffffff;"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </nav>
+        <!-- Modal Structure -->
+        <div id="profileModal" class="modal">
+            <h3>My Profile</h3>
+            <p><i class="fa-solid fa-user"></i>  Username: admin</p>
+            <p><i class="fa-solid fa-lock"></i>  Password: 12345</p>
+            <div class="modal-footer" style="background-color: #F9453E;">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
 
         <!-- Hamburger Menu Bar -->
         <a href="#" style="color: #ffffff;"  data-target="mobile-demo" class="sidenav-trigger">
@@ -56,11 +77,12 @@
             <h5 class="sideNav-Name">John Doe</h5>
                     
             <div class="sideNav-Items">
-                <li><a href="#About" style="font-size: 17px;">
+                <li>
+                    <a href="#profileModal" class="modal-trigger" style="font-size: 17px;">
                         <i class="fa-regular fa-user"></i>My Profile
                     </a>
                 </li>
-                <li><a href="#Contact" style="font-size: 17px;">
+                <li><a href="index.html" style="font-size: 17px;">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
                     </a>
                 </li>
@@ -108,176 +130,181 @@
             </ul>
         </div>
 
-        <div class="parallax-container">
-            <div class="parallax"><img src="ImageSources/BG-IMAGE-PARALLAX.png"></div>      
+        <div class="header-divider">
+
         </div>
 
-        <div id="Tools"> 
-             <img class="txtTools" src="ImageSources/txtTools.png">
-             <div class="toolContainer">
-                <div class="toolBoxContainer">
-                    <p class="toolDefinition">This is an Ouput Tracker for your grades.</p>
-                    <button class="rounded-button" type="button">Output Tracker</button>
-                </div>
-                <div class="toolBoxContainer">
-                    <p class="toolDefinition">This is an Academic Work Management.</p>
-                    <button class="rounded-button" type="button">Work Manager</button>
+        <section class="scrollspy" id="scrollspy-Tools">
+            <div id="Tools"> 
+                <img class="txtTools" src="ImageSources/txtTools.png">
+                <div class="toolContainer">
+                    <div class="toolBoxContainer">
+                        <p class="toolDefinition">This is an Ouput Tracker for your grades.</p>
+                        <button onclick="redirectToComputePage()" class="rounded-button" type="button">Output Tracker</button>
+                    </div>
+                    <div class="toolBoxContainer">
+                        <p class="toolDefinition">This is an Academic Work Management.</p>
+                        <button onclick="redirectToUploadPage()" class="rounded-button" type="button">Work Manager</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
         
-        <div id="About">
-            <div class="responsive-container-block container">
-                <img class="txtTeam" src="ImageSources/txtTeam.png">
-                <div class="responsive-container-block">
-                    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-                        <div class="card">
-                            <div class="team-image-wrapper">
-                            <img class="team-member-image" src="ImageSources/Abrea, Weisha.png">
-                            </div>
-                            <p class="text-blk name">Abrea, Weisha</p>
-                            <p class="text-blk position">Member</p>
-                            <p class="text-blk feature-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <div class="social-icons">
-                                <a href="https://www.facebook.com/profile.php?id=100078394005992" target="_blank">
-                                    <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
-                                </a>
+        <section class="scrollspy" id="scrollspy-About">
+            <div id="About">
+                <div class="responsive-container-block container">
+                    <img class="txtTeam" src="ImageSources/txtTeam.png">
+                    <div class="responsive-container-block">
+                        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+                            <div class="card">
+                                <div class="team-image-wrapper">
+                                <img class="team-member-image" src="ImageSources/Abrea, Weisha.png">
+                                </div>
+                                <p class="text-blk name">Abrea, Weisha</p>
+                                <p class="text-blk position">Member</p>
+                                <p class="text-blk feature-text">
+                                "The Tech Era: Technology = communication."
+                                </p>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/profile.php?id=100078394005992" target="_blank">
+                                        <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-                        <div class="card">
-                            <div class="team-image-wrapper">
-                            <img class="team-member-image" src="ImageSources/Baldovino, Haven.png">
-                            </div>
-                            <p class="text-blk name">Baldovino, Haven</p>
-                            <p class="text-blk position">Assistant Leader</p>
-                            <p class="text-blk feature-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <div class="social-icons">                              
-                                <a href="https://www.facebook.com/h2vss" target="_blank">
-                                    <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
-                                </a>
+                        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+                            <div class="card">
+                                <div class="team-image-wrapper">
+                                <img class="team-member-image" src="ImageSources/Baldovino, Haven.png">
+                                </div>
+                                <p class="text-blk name">Baldovino, Haven</p>
+                                <p class="text-blk position">Assistant Leader</p>
+                                <p class="text-blk feature-text">
+                                "With technology, we can achive the unimaginable."
+                                </p>
+                                <div class="social-icons">                              
+                                    <a href="https://www.facebook.com/h2vss" target="_blank">
+                                        <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        
+                        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+                            <div class="card">
+                                <div class="team-image-wrapper">
+                                <img class="team-member-image" src="ImageSources/Remojo, Axel.png">
+                                </div>
+                                <p class="text-blk name">Remojo, Axel</p>
+                                <p class="text-blk position">Team Leader</p>
+                                <p class="text-blk feature-text">
+                            "Technology is our past, present and future"
+                                </p>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/axelremojo.24" target="_blank">
+                                        <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     
-                    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-                        <div class="card">
-                            <div class="team-image-wrapper">
-                            <img class="team-member-image" src="ImageSources/Remojo, Axel.png">
-                            </div>
-                            <p class="text-blk name">Remojo, Axel</p>
-                            <p class="text-blk position">Team Leader</p>
-                            <p class="text-blk feature-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <div class="social-icons">
-                                <a href="https://www.facebook.com/axelremojo.24" target="_blank">
-                                    <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-                        <div class="card">
-                            <div class="team-image-wrapper">
-                            <img class="team-member-image" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png">
-                            </div>
-                            <p class="text-blk name">Pasague, Raymarc</p>
-                            <p class="text-blk position">Member</p>
-                            <p class="text-blk feature-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <div class="social-icons">
-                                <a href="https://www.facebook.com/raymark.pasagui" target="_blank">
-                                    <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
-                                </a>
+                        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+                            <div class="card">
+                                <div class="team-image-wrapper">
+                                <img class="team-member-image" src="ImageSources/Pasague, Raymarc L.png">
+                                </div>
+                                <p class="text-blk name">Pasague, Raymarc</p>
+                                <p class="text-blk position">Member</p>
+                                <p class="text-blk feature-text">
+                                "Technology is best when it brings people together"
+                                </p>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/raymark.pasagui" target="_blank">
+                                        <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
-                        <div class="card">
-                            <div class="team-image-wrapper">
-                            <img class="team-member-image" src="ImageSources/Ilagan, Kristia.png">
-                            </div>
-                            <p class="text-blk name">Ilagan, Kristia</p>
-                            <p class="text-blk position">Member</p>
-                            <p class="text-blk feature-text">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            </p>
-                            <div class="social-icons">
-                                <a href="https://www.facebook.com/kristia.ilagan.20" target="_blank">
-                                    <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
-                                </a>
+                        <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
+                            <div class="card">
+                                <div class="team-image-wrapper">
+                                <img class="team-member-image" src="ImageSources/Ilagan, Kristia.png">
+                                </div>
+                                <p class="text-blk name">Ilagan, Kristia</p>
+                                <p class="text-blk position">Member</p>
+                                <p class="text-blk feature-text">
+                                "Innovate, connect, and explore in technology"
+                                </p>
+                                <div class="social-icons">
+                                    <a href="https://www.facebook.com/kristia.ilagan.20" target="_blank">
+                                        <img class="facebook-icon" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/Icon-1.svg">
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="aboutDetails-Container">
-                <p id="aboutDetails">
-                    Study Flow Hub aims to provide assistance in tracking web-based outputs and managing academic work for ESTEM-C students (Science, Technology, Engineering, Mathematics – Computing). This web prototype is designed to meet the academic needs and progress of participating students. In addition, this system improves feedback and allows educational resources to be customized to meet the specific needs of 12 ESTEM C students during the 2023-2024 academic year.
-                </p>
+                <div class="aboutDetails-Container">
+                    <p id="aboutDetails">
+                        Study Flow Hub aims to provide assistance in tracking web-based outputs and managing academic work for ESTEM-C students (Science, Technology, Engineering, Mathematics – Computing). This web prototype is designed to meet the academic needs and progress of participating students. In addition, this system improves feedback and allows educational resources to be customized to meet the specific needs of 12 ESTEM C students during the 2023-2024 academic year.
+                    </p>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Footer -->
-        <footer id="Contact" class="page-footer" style="background-color: #023B1A">
-            <div class="container">
-                <div class="row">
-                    <div class="col s12 l6 s12"><br>
-                        <a href="" class="footer-logo">
-                            <img src="ImageSources/Web-Logo-White.png" alt="logo" class="responsive-img" width="200" height="200">
-                        </a>
-                        <p style="color: #ffffff; font-size: 20px;">𝐄𝐦𝐚𝐢𝐥: <u>studyflowhub@gmail.com</u></p>
-                        <p style="color: #ffffff; font-size: 20px;">𝐂𝐨𝐧𝐭𝐚𝐜𝐭: (63+) 987-6543-210</p>
-                    </div>
+        <section class="scrollspy" id="scrollspy-Contact">
+            <footer id="Contact" class="page-footer" style="background-color: #023B1A">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 l6 s12"><br>
+                            <a href="" class="footer-logo">
+                                <img src="ImageSources/Web-Logo-White.png" alt="logo" class="responsive-img" width="200" height="200">
+                            </a>
+                            <p style="color: #ffffff; font-size: 20px;">𝐄𝐦𝐚𝐢𝐥: <u>studyflowhub@gmail.com</u></p>
+                            <p style="color: #ffffff; font-size: 20px;">𝐂𝐨𝐧𝐭𝐚𝐜𝐭: (63+) 987-6543-210</p>
+                        </div>
 
-                    <!-- Socials -->
-                    <br>
-                    <div class="col s12 l4 offset-l2 ">
-                        <h4 style="color: #ffffff; font-weight: bold;">𝗦𝗢𝗖𝗜𝗔𝗟𝗦</h4>
-                        <ul class="left-align"><br>
-                            <li> 
-                                <a href="https://www.instagram.com/" style="font-size: 20px; color: #ffffff">
-                                    <i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff"></i>
-                                    &nbsp;&nbsp;&nbsp;𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦
-                                </a>
-                            </li>
-                            <p></p><br>
-                            <li> 
-                                <a href="https://www.facebook.com/" style="font-size: 20px; color: #ffffff">
-                                    <i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff"></i>
-                                    &nbsp;&nbsp;𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤
-                                </a>
-                            </li>
-                            <p></p><br>
-                            <li> 
-                                <a href="https://www.tiktok.com/" style="font-size: 20px; color: #ffffff">
-                                    <i class="fa-brands fa-tiktok fa-2xl" style="color: #ffffff"></i>
-                                    &nbsp;&nbsp;&nbsp;𝐓𝐢𝐤𝐭𝐨𝐤
-                                </a>
-                            </li>
-                        </ul>
+                        <!-- Socials -->
+                        <br>
+                        <div class="col s12 l4 offset-l2 ">
+                            <h4 style="color: #ffffff; font-weight: bold;">𝗦𝗢𝗖𝗜𝗔𝗟𝗦</h4>
+                            <ul class="left-align"><br>
+                                <li> 
+                                    <a href="https://www.instagram.com/" style="font-size: 20px; color: #ffffff">
+                                        <i class="fa-brands fa-instagram fa-2xl" style="color: #ffffff"></i>
+                                        &nbsp;&nbsp;&nbsp;𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦
+                                    </a>
+                                </li>
+                                <p></p><br>
+                                <li> 
+                                    <a href="https://www.facebook.com/" style="font-size: 20px; color: #ffffff">
+                                        <i class="fa-brands fa-facebook fa-2xl" style="color: #ffffff"></i>
+                                        &nbsp;&nbsp;𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤
+                                    </a>
+                                </li>
+                                <p></p><br>
+                                <li> 
+                                    <a href="https://www.tiktok.com/" style="font-size: 20px; color: #ffffff">
+                                        <i class="fa-brands fa-tiktok fa-2xl" style="color: #ffffff"></i>
+                                        &nbsp;&nbsp;&nbsp;𝐓𝐢𝐤𝐭𝐨𝐤
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-copyright center">
-                <div class="container " style="color: #ffffff; font-size: 20px;">
-                <hr>
-                   𝗖𝗼𝗽𝘆𝗿𝗶𝗴𝗵𝘁 (𝗰) 𝟮𝟬𝟮𝟰 | @ 𝗦𝘁𝘂𝗱𝘆 𝗙𝗹𝗼𝘄 𝗛𝘂𝗯
+                <div class="footer-copyright center">
+                    <div class="container " style="color: #ffffff; font-size: 20px;">
+                    <hr>
+                    𝗖𝗼𝗽𝘆𝗿𝗶𝗴𝗵𝘁 (𝗰) 𝟮𝟬𝟮𝟰 | @ 𝗦𝘁𝘂𝗱𝘆 𝗙𝗹𝗼𝘄 𝗛𝘂𝗯
+                    </div>
                 </div>
-            </div>
-        </footer>
-
+            </footer>
+        </section>
 
         <!-- jquery cdn -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -301,9 +328,88 @@
                 var instancesSidenav = M.Sidenav.init(elemsSidenav, optionsSidenav);
             });
 
-            // JavaScript to initialize the Parallax
-             $(document).ready(function(){
-                $('.parallax').parallax();
+            // Redirect to Compute Page
+            function redirectToComputePage() {
+                window.location.href = "ComputePage.html";
+            }
+
+            // Redirect to Work Manager Page
+            function redirectToUploadPage() {
+                window.location.href = "UploadPage.html";
+            }
+            
+            // Displays a Modal for My profile
+            document.addEventListener('DOMContentLoaded', function () {
+                // Initialize the modal
+                const modalElems = document.querySelectorAll('.modal');
+                const modalInstances = M.Modal.init(modalElems, {});
+            });
+
+            // For Modal Default Credential
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the page loads, show the modal
+                modal.style.display = "block";
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal content, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+                // Stop event propagation when clicking inside the modal content
+                modal.onclick = function(event) {
+                    event.stopPropagation();
+                }
+            });
+
+            // JavaScript to handle the modal and close button
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get the modal and close button elements
+                const modal = document.querySelector('.modal-content');
+                const overlay = document.querySelector('.overlay');
+                const closeButton = modal.querySelector('.close');
+
+                // Function to open the modal
+                function openModal() {
+                    modal.style.display = 'block';
+                    overlay.style.display = 'block'; // Show the overlay
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
+                }
+
+                // Function to close the modal
+                function closeModal() {
+                    modal.style.display = 'none';
+                    overlay.style.display = 'none'; // Hide the overlay
+                    document.body.style.overflow = ''; // Allow scrolling on the body
+                }
+
+                // Event listener for the close button
+                closeButton.addEventListener('click', closeModal);
+
+                // Event listener to open the modal when the page loads
+                openModal();
+            });
+
+            // Additonal inst. after the Reminder
+            setTimeout(function(){
+                alert("𝗣𝗹𝗲𝗮𝘀𝗲 𝗰𝗹𝗶𝗰𝗸 𝘁𝗵𝗲 𝗫 𝘀𝘆𝗺𝗯𝗼𝗹 𝗼𝗻 𝘁𝗵𝗲 𝘄𝗶𝗻𝗱𝗼𝘄 𝘁𝗼 𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲 :>");
+            }, 4000);
+
+            // Scroll Spy
+            $(document).ready(function(){
+                $('.scrollspy').scrollSpy();
             });
         </script> 
     </body>
