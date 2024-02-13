@@ -1,5 +1,5 @@
 html {
-    font-family: 'Montserrat';
+    font-family: 'Poppins';
     background-color: #3F8C55;
 }
 
@@ -50,4 +50,119 @@ button{
 
 .auth-wrapper .authentication-form .sign-btn {
     margin-top: 30px
+}
+
+/* For alert box */
+@keyframes pop {
+    0% {
+        transform: scale(0); /* Initially scale down to 0 */
+    }
+    100% {
+        transform: scale(1); /* Scale up to 100% */
+    }
+}
+
+.alert {
+    font-family: 'Montserrat';
+    font-size: 26px;
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    width: 450px;
+    position: fixed;
+    margin-top: -570px;
+    left: 39%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; 
+    animation: pop 0.5s ease forwards;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.btn-container {
+    text-align: center;
+    margin-top: 10px;
+}
+.btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.cancel {
+    background-color: #000000; 
+    color: white;
+}
+
+.cancel:hover {
+    background-color: #ffffff; 
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998; 
+}
+
+/* For Toggle Show and Hide */
+#toggleButton{
+    padding-left: 350px;
+}
+
+#toggleButton1{
+    padding-left: 270px;
+}
+
+/* --- For Modal --- */
+#myModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    width: 390px;
+    height: 100%;
+    margin-left: 800px;
+    animation: pop 0.3s ease forwards;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    border-radius: 40px;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 300px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
