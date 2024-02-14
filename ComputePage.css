@@ -1,3 +1,7 @@
+body {
+    padding-bottom: 200px; /* Adjust the value based on the height of your footer */
+}
+
 .dropdown-trigger.btn {
     background-color: #023B1A; 
     color: white !important; 
@@ -17,4 +21,13 @@
     background-color: #11813A;
     font-weight: 700;
     color: white;
+}
+
+.collapsible-header:hover {
+    background-color: #146833;
+}
+
+.collapsible-body {
+    max-height: calc(60vh - 200px); /* Adjusted max-height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
 }

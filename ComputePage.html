@@ -35,11 +35,34 @@
             </div>
         </nav>
 
+        <!-- Hamburger Menu Bar -->
+        <a href="#" style="color: #ffffff;"  data-target="mobile-demo" class="sidenav-trigger">
+            <i class="fas fa-bars fixed-hamburger" style="color: #ffffff;"></i>
+        </a>
+        
+        <!-- SideNav -->
+        <ul class="sidenav left-align" id="mobile-demo" style="overflow: hidden; border-radius: 35px;">
+            <img src="ImageSources/SideNav-ProfilePic.png" width="150px" height="150px" style="margin-top: 100px; margin-left: 75px;">
+            <h5 class="sideNav-Name">John Doe</h5>
+                    
+            <div class="sideNav-Items">
+                <li><a href="#About" style="font-size: 17px;">
+                        <i class="fa-regular fa-user"></i>My Profile
+                    </a>
+                </li>
+                <li><a href="#Contact" style="font-size: 17px;">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout
+                    </a>
+                </li>
+            </div>
+        </ul>
+
         <script>
-            function generateWrittenWorksInputs() {
-                const numWrittenWorks = parseInt(document.getElementById('numWrittenWorks').value) || 0;
-                const quizInputsDiv = document.getElementById('quizInputs');
-                quizInputsDiv.innerHTML = '';
+            // Define the JavaScript functions
+            function generateWrittenWorksInputs(subject) {
+                const numWrittenWorks = parseInt(document.getElementById(`numWrittenWorks${subject}`).value) || 0;
+                const WrittenWorksInputsDiv = document.getElementById(`WrittenWorksInputs${subject}`);
+                WrittenWorksInputsDiv.innerHTML = '';
 
                 for (let i = 1; i <= numWrittenWorks; i++) {
                     const divRow = document.createElement('div');
@@ -53,39 +76,39 @@
 
                     const rawScoreInput = document.createElement('input');
                     rawScoreInput.type = 'number';
-                    rawScoreInput.placeholder = 'Quiz ' + i + ' (Your Score)';
-                    rawScoreInput.id = 'qz' + i + 'Raw';
+                    rawScoreInput.placeholder = `WW ${i} (Your Score)`;
+                    rawScoreInput.id = `qz${i}Raw${subject}`;
                     rawScoreColumn.appendChild(rawScoreInput);
 
                     const maxScoreInput = document.createElement('input');
                     maxScoreInput.type = 'number';
-                    maxScoreInput.placeholder = 'Total Score';
-                    maxScoreInput.id = 'qz' + i + 'Max';
+                    maxScoreInput.placeholder = 'Total Possible Score';
+                    maxScoreInput.id = `qz${i}Max${subject}`;
                     maxScoreColumn.appendChild(maxScoreInput);
 
                     divRow.appendChild(rawScoreColumn);
                     divRow.appendChild(maxScoreColumn);
-                    quizInputsDiv.appendChild(divRow);
+                    WrittenWorksInputsDiv.appendChild(divRow);
                 }
             }
 
-            function calculateGrade() {
-                const numWrittenWorks = parseInt(document.getElementById('numWrittenWorks').value) || 0;
+            function calculateGrade(subject) {
+                const numWrittenWorks = parseInt(document.getElementById(`numWrittenWorks${subject}`).value) || 0;
 
                 let quizTotal = 0;
                 for (let i = 1; i <= numWrittenWorks; i++) {
-                    const rawScore = parseFloat(document.getElementById('qz' + i + 'Raw').value) || 0;
-                    const maxScore = parseFloat(document.getElementById('qz' + i + 'Max').value) || 0;
+                    const rawScore = parseFloat(document.getElementById(`qz${i}Raw${subject}`).value) || 0;
+                    const maxScore = parseFloat(document.getElementById(`qz${i}Max${subject}`).value) || 0;
                     quizTotal += (rawScore / maxScore) || 0;
                 }
                 quizTotal /= numWrittenWorks;
 
-                const examScore = parseFloat(document.getElementById('exam').value) || 0;
-                const examMaxScore = parseFloat(document.getElementById('examScore').value) || 0;
+                const examScore = parseFloat(document.getElementById(`exam${subject}`).value) || 0;
+                const examMaxScore = parseFloat(document.getElementById(`examScore${subject}`).value) || 0;
                 const exam = (examScore / examMaxScore) || 0;
 
-                const ptScore = parseFloat(document.getElementById('pt1').value) || 0;
-                const ptMaxScore = parseFloat(document.getElementById('pt1Score').value) || 0;
+                const ptScore = parseFloat(document.getElementById(`pt1${subject}`).value) || 0;
+                const ptMaxScore = parseFloat(document.getElementById(`pt1Score${subject}`).value) || 0;
                 const pt = (ptScore / ptMaxScore) || 0;
 
                 const quizWeight = 0.25;
@@ -94,10 +117,11 @@
 
                 const overallGrade = (quizTotal * quizWeight) + (exam * examWeight) + (pt * ptWeight);
 
-                document.getElementById('result').innerText = `Overall Grade: ${(overallGrade * 100).toFixed(2)}%`;
+                document.getElementById(`result${subject}`).innerText = `Overall Grade: ${(overallGrade * 100).toFixed(2)}%`;
             }
         </script>
-        
+
+
         <!-- Collapsible -->
         <div class="container" style="height: 1000px;">
             <div class="row">
@@ -117,17 +141,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksChemistry" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Chemistry')"/>
+                                    <div id="WrittenWorksInputsChemistry"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examChemistry" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreChemistry" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -135,17 +159,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Chemistry" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreChemistry" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('Chemistry')">Calculate Grade</button>
+                                <p id="resultChemistry"></p>
                             </div>
                         </div>
                     </div>
@@ -160,17 +184,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksPhysics" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Physics')"/>
+                                    <div id="WrittenWorksInputsPhysics"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examPhysics" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScorePhysics" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -178,17 +202,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Physics" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScorePhysics" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('Physics')">Calculate Grade</button>
+                                <p id="resultPhysics"></p>
                             </div>
                         </div>
                     </div>
@@ -203,17 +227,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksCapstone" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Capstone')"/>
+                                    <div id="WrittenWorksInputsCapstone"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examCapstone" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreCapstone" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -221,24 +245,19 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Capstone" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreCapstone" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
-                            </div>
+                                <button onclick="calculateGrade('Capstone')">Calculate Grade</button>
+                                <p id="resultCapstone"></p>
                         </div>
                     </div>
-                </li>
-                <!-- Research Project -->
-                <li>
-                    <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Research Project
                     </div>
                     <div class="collapsible-body">
@@ -246,17 +265,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksProject" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Project')"/>
+                                    <div id="WrittenWorksInputsProject"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examProject" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreProject" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -264,17 +283,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Project" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreProject" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('Project')">Calculate Grade</button>
+                                <p id="resultProject"></p>
                             </div>
                         </div>
                     </div>
@@ -288,17 +307,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksCPAR" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('CPAR')"/>
+                                    <div id="WrittenWorksInputsCPAR"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examCPAR" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreCPAR" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -306,17 +325,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1CPAR" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreCPAR" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('CPAR')">Calculate Grade</button>
+                                <p id="resultCPAR"></p>
                             </div>
                         </div>
                     </div>
@@ -331,17 +350,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksWebDev" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('WebDev')"/>
+                                    <div id="WrittenWorksInputsWebDev"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examWebDev" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreWebDev" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -349,17 +368,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1WebDev" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreWebDev" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('WebDev')">Calculate Grade</button>
+                                <p id="resultWebDev"></p>
                             </div>
                         </div>
                     </div>
@@ -374,17 +393,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksEmpowerment" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Empowerment')"/>
+                                    <div id="WrittenWorksInputsEmpowerment"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examEmpowerment" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreEmpowerment" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -392,17 +411,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Empowerment" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreEmpowerment" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('Empowerment')">Calculate Grade</button>
+                                <p id="resultEmpowerment"></p>
                             </div>
                         </div>
                     </div>
@@ -417,17 +436,17 @@
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorks" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs()"/>
-                                    <div id="quizInputs"></div>
+                                    <input type="number" id="numWrittenWorksPE" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('PE')"/>
+                                    <div id="WrittenWorksInputsPE"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="exam" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examPE" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScore" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScorePE" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -435,17 +454,17 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1PE" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Score" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScorePE" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <button onclick="calculateGrade()">Calculate Grade</button>
-                                <p id="result"></p>
+                                <button onclick="calculateGrade('PE')">Calculate Grade</button>
+                                <p id="resultPE"></p>
                             </div>
                         </div>
                     </div>
@@ -520,6 +539,5 @@
             });
             
         </script>
-
     </body>
 </html>

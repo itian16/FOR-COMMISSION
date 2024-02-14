@@ -23,3 +23,7 @@
     font-weight: 700;
     color: white;
 }
+
+.collapsible-header:hover {
+    background-color: #146833;
+}
