@@ -23,10 +23,10 @@
             <!-- Modal -->
             <div class="modal-content">
                 <span class="close">&times;</span>
+                <div id="timer"></div>
                 <h2>DEAR USER,</h2>
-                <p>This <b style="color: #F9453E;">Web Prototype</b> is not uploaded on a paid domain and doesn't have any paid API or cloud storage. The intention of the developers/researchers is to showcase the mock-up, prototype, and visualization of their goals and services.</p><br>
-                <p>Thank you,</p>
-                <p>- Study Flow Developers/Researchers</p>
+                <p>This <b style="color: #F9453E;">Web Prototype</b> is not uploaded on a paid domain and doesn't have any paid API or cloud storage. The intention of the developers/researchers is to showcase the mock-up, prototype, and visualization of their goals and services.</p>
+                <p>Thank you,<br>- Study Flow Developers/Researchers</p>
             </div>
         </div>
 
@@ -404,14 +404,37 @@
                 openModal();
             });
 
-            // Additonal inst. after the Reminder
-            setTimeout(function(){
-                alert("𝗣𝗹𝗲𝗮𝘀𝗲 𝗰𝗹𝗶𝗰𝗸 𝘁𝗵𝗲 𝗫 𝘀𝘆𝗺𝗯𝗼𝗹 𝗼𝗻 𝘁𝗵𝗲 𝘄𝗶𝗻𝗱𝗼𝘄 𝘁𝗼 𝗰𝗼𝗻𝘁𝗶𝗻𝘂𝗲 :>");
-            }, 4000);
-
             // Scroll Spy
             $(document).ready(function(){
                 $('.scrollspy').scrollSpy();
+            });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                // Select the modal
+                var modal = document.querySelector('.overlay');
+
+                // Close the modal after 15 seconds
+                setTimeout(function() {
+                    modal.style.display = "none";
+                    document.body.style.overflow = '';
+                }, 20000);
+            });
+
+            // Timer
+            document.addEventListener("DOMContentLoaded", function() {
+                var modal = document.querySelector('.overlay');
+                var timerElement = document.getElementById('timer');
+                var seconds = 20;
+
+                var timerInterval = setInterval(function() {
+                    seconds--;
+                    timerElement.innerHTML = "Closing in " + seconds + " seconds";
+
+                    if (seconds <= 0) {
+                        clearInterval(timerInterval);
+                        modal.style.display = "none";
+                    }
+                }, 1000); // Update the timer every 1 second
             });
         </script> 
     </body>

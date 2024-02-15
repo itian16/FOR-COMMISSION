@@ -166,3 +166,25 @@ button{
     text-decoration: none;
     cursor: pointer;
 }
+
+
+/* ---Responsiveness--- */
+/* Media query for cellphones */
+@media only screen and (max-width: 480px) {
+    /* Adjustments for smaller screens */
+    body {
+        font-size: 16px;
+    }
+    
+    .auth-wrapper .authentication-form {
+        width: 90%; /* Adjust form width for smaller screens */
+    }
+
+    .auth-wrapper .authentication-form .form-group .form-control {
+        font-size: 1em; /* Increase input font size */
+    }
+
+    .btnText {
+        font-size: 14px; /* Decrease button text size */
+    }
+}
