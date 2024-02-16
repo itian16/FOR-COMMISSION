@@ -222,22 +222,22 @@
                     <div class="collapsible-header">
                         <i class="material-icons">whatshot</i>Research Capstone
                     </div>
-                    <li class="collapsible-body">
+                    <div class="collapsible-body">
                         <div class="container">
                             <div class="row">
                                 <div class="col s12 m6 l4">
                                     <span>Written Works</span>
-                                    <input type="number" id="numWrittenWorksCapstone" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Capstone')"/>
-                                    <div id="WrittenWorksInputsCapstone"></div>
+                                    <input type="number" id="numWrittenWorksProject" placeholder="Number of Written Works" onchange="generateWrittenWorksInputs('Project')"/>
+                                    <div id="WrittenWorksInputsProject"></div>
                                 </div>
                                 <div class="col s12 m6 l4">
                                     <span>Exam</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examCapstone" placeholder="Your Exam Score"/>
+                                            <input type="number" id="examProject" placeholder="Your Exam Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="examScoreCapstone" placeholder="Total Exam Score"/>
+                                            <input type="number" id="examScoreProject" placeholder="Total Exam Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -245,10 +245,10 @@
                                     <span>Performance Task</span>
                                     <div class="row">
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1Capstone" placeholder="Your PT Score"/>
+                                            <input type="number" id="pt1Project" placeholder="Your PT Score"/>
                                         </div>
                                         <div class="col s6 m6 l6">
-                                            <input type="number" id="pt1ScoreCapstone" placeholder="Total PT Score"/>
+                                            <input type="number" id="pt1ScoreProject" placeholder="Total PT Score"/>
                                         </div>
                                     </div>
                                 </div>
@@ -256,6 +256,7 @@
                             <div>
                                 <button onclick="calculateGrade('Capstone')">Calculate Grade</button>
                                 <p id="resultCapstone"></p>
+                            </div>
                         </div>
                     </div>
                 </li>
